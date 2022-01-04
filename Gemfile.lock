@@ -151,12 +151,13 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.0.0)
     rake (13.0.6)
-    react_on_rails (11.1.8)
+    react_on_rails (12.3.0)
       addressable
       connection_pool
       execjs (~> 2.5)
       rails (>= 3.2)
       rainbow (~> 3.0)
+      webpacker (>= 4.0)
     regexp_parser (2.2.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -214,7 +215,7 @@ DEPENDENCIES
   mini_racer
   puma (~> 5.0)
   rails (~> 7.0.0)
-  react_on_rails (~> 11.1.7)
+  react_on_rails (= 12.3.0)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
