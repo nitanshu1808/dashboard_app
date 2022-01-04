@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.0.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.0"
+gem "rails", "~> 6.0.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -71,5 +71,5 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'react_on_rails'
+gem 'react_on_rails', '12.5.0'
 gem 'webpacker'
