@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'react_on_rails'
+gem 'webpacker'
