@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In order to get the application up and running, consider the steps below:
 
-Things you may want to cover:
+* Make Sure you have yarn and node installed
 
-* Ruby version
+* Take a clone of the project
 
-* System dependencies
+* cd project_name, followed by bundle install
 
-* Configuration
+* rake db:create #For creating the database
 
-* Database creation
+* rake db:seed
 
-* Database initialization
+* yarn install
 
-* How to run the test suite
+* rails s
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
