@@ -18,7 +18,7 @@
   box-sizing: border-box;
 }
 
-body, html, body > div {
+body, html, #vendor-page, #stakeholder-page {
   margin: 0;
   height: 100%;
   width: 100%;

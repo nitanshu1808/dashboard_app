@@ -11,13 +11,12 @@ const Dashboard = (props) => {
           <Button type="submit">Sign Out</Button>
         </form>
       </div>
-      <div id="content"></div>
+      <div id="content">{props.children}</div>
     </div>
   );
 }
 
 Dashboard.propTypes = {
-  userType: PropTypes.string.isRequired,
   signOutPath: PropTypes.string.isRequired
 };
 

@@ -1,7 +1,9 @@
 import ReactOnRails from 'react-on-rails';
 
-import Dashboard from '../components/Dashboard';
+import VendorPage from '../components/VendorPage';
+import StakeholderPage from '../components/StakeholderPage';
 
 ReactOnRails.register({
-  Dashboard
+  VendorPage,
+  StakeholderPage
 });
