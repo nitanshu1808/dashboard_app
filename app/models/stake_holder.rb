@@ -1,0 +1,2 @@
+class StakeHolder < User
+end
