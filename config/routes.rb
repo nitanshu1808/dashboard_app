@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   namespace 'stakeholder' do
     resources :dashboard, only: :index
   end
+
+  resources 'profile', only: :show
 end

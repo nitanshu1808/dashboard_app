@@ -1,0 +1,33 @@
+<h1><%= @vendor.name %></h1>
+
+<div class='primary-vendor-contact'>
+    <div class='member-info'>
+        <span class='member-name'>
+            <%= @vendor.contacts.select{ |contact| contact.member_type == 'Team Owner' }.first.name %>
+        </span>
+        <span class='member-type'>
+            <%= @vendor.contacts.select{ |contact| contact.member_type == 'Team Owner' }.first.member_type %>
+        </span>
+    </div>
+    <div class='actions'>
+        <button type='button'>View</button>
+    </div>
+</div>
+
+<div class='contacts'>
+    <h2>Contacts</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Member type</th>
+            </tr>
+        </thead>
+        <% @vendor.contacts.each do |contact| %>
+            <tr>
+                <td><%= contact.name %></td>
+                <td><%= contact.member_type %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
