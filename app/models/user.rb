@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :validatable
   enum status: [:active, :inactive]
 
-  USER_TYPES = [Vendor.name, StakeHolder.name]
+  USER_TYPES = ['Vendor', 'StakeHolder']
 
   USER_TYPES.each do |kind|
     define_method "#{kind.downcase}?" do
