@@ -10,8 +10,8 @@ class Stakeholder::DashboardController < ApplicationController
     Order.includes(:sender_address, :recipient_address, [product: :vendor]).each do |order|
       orders << {
         id: order.id,
-        vendor_name: order.vendor_name,
-        status: order.status,
+        vendor_name: order.vendor_name&.titleize,
+        status: order.status&.titleize,
         created_at: order.created_at,
         updated_at: order.updated_at,
         discount: order.discount,
@@ -21,11 +21,11 @@ class Stakeholder::DashboardController < ApplicationController
         sender_country: order.sender_address.country,
         recipient_country: order.recipient_address.country,
         product_id: order.product_id,
-        product_name: order.product.name,
-        product_description: order.product.description,
+        product_name: order.product.name&.titleize,
+        product_description: order.product.description&.titleize,
         product_price: order.product.price,
-        sender_name: order.sender_address.user_name,
-        recipient_name: order.recipient_address.user_name
+        sender_name: order.sender_address.user_name&.titleize,
+        recipient_name: order.recipient_address.user_name&.titleize
       }
     end
 

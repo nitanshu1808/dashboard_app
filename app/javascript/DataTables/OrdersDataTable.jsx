@@ -13,7 +13,7 @@ const columns = [
     field: 'total_amount',
     headerName: 'Amount',
     type: 'number',
-    width: 90,
+    width: 120,
   },
 ];
 
