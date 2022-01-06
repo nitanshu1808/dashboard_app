@@ -1,10 +1,24 @@
+
+:root {
+  --primary-color: rgb(243, 112, 33);
+  --primary-hover-color: rgb(255, 248, 244);
+}
+
 h1 {
-  color: rgb(243, 112, 33);
+  color: var(--primary-color);
 }
 
 body {
   font-family: Helvetica;
   margin: 0;
+}
+
+button {
+  color: var(--primary-color) !important;
+}
+
+button:hover {
+  background-color: var(--primary-hover-color) !important;
 }
 
 #sidebar {
@@ -25,51 +39,4 @@ body {
 #main-content {
   margin-left: 290px;
   padding: 20px 40px;
-}
-
-.primary-vendor-contact {
-  max-width: 250px;
-  background-color: #fff7f7;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.primary-vendor-contact .member-info {
-  flex-wrap: nowrap;
-}
-
-.primary-vendor-contact .member-name {
-  font-size: large;
-  font-weight: bold;
-}
-
-.primary-vendor-contact .member-type {
-  color: #999;
-  display: block;
-}
-
-.primary-vendor-contact button {
-  padding: 10px;
-  background-color: rgb(243, 112, 33);
-  color: white;
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  vertical-align: middle;
-  padding: 10 30px;
-}
-
-.primary-vendor-contact button:hover {
-  background-color: rgb(240, 137, 73);
-  cursor: pointer;
-}
-
-.contacts {
-  margin-top: 20px;
-}
-
-.contacts table {
-  width: 100%;
 }

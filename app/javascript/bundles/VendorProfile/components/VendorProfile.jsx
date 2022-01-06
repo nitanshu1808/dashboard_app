@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import TeamMemberTable from './TeamMemberTable';
+import SingleItemCard from './SingleItemCard';
 
 const VendorProfile = (props) => {
-  const elements = ['one', 'two', 'three'];      
   return (
     <div>
-      <h1>Welcome, { props.name }</h1> 
-      {props.contacts.map((value, index) => {
-        return <li key={index}>{value.name}</li>
-      })}
+      <h1>{ props.name }</h1> 
+      <SingleItemCard title={props.contacts[0].name} subtitle={'Team Lead'} link='#' />
+      <TeamMemberTable contacts={props.contacts} />
     </div>
   );
 };
 
 VendorProfile.propTypes = {
-  name: PropTypes.string.isRequired, // this is passed from the Rails view
+  name: PropTypes.string.isRequired,
   contacts: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     member_type: PropTypes.string
