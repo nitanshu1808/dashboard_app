@@ -74,6 +74,18 @@ const Ch_Top20Vendors = (props) => {
                     enabled: true,
                     format: '{point.name}: {point.y}'
                 }
+            },
+            pie: {
+              colors: (function () {
+                  var colors = [],
+                      base = 	"#ff8000", //orange
+                      i;
+              
+                  for (i = 0; i < 20; i++) {
+                      colors.push(Highcharts.color(base).brighten((i-10) / 32).get());
+                  }
+                  return colors;
+              }())
             }
         },
           series: [{

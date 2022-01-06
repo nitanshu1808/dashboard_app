@@ -92,7 +92,7 @@ const Ch_OrdersVolumeComparison = (props) => {
               enabled: true,
               inside: true,
               style: {
-                  fontSize: '16px'
+                  fontSize: '12px'
               }
             }],
             data: chart_data.current_month_data
