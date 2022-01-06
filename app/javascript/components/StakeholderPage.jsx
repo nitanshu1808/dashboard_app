@@ -4,11 +4,11 @@ import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
 import Dashboard from './Dashboard';
 import Panel from './Panel';
-
+import Ch_VendorsPieChart from './Ch_VendorsPieChart';
 const StakeholderPage = (props) => {
+
   return (
     <Dashboard
       signOutPath={props.signOutPath}
@@ -20,11 +20,16 @@ const StakeholderPage = (props) => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={8} lg={9}>
             <Panel title="Example Panel">
-
+            </Panel>
+          </Grid>
+          <Grid item xs={12} md={8} lg={9}>
+            <Panel>
+              <Ch_VendorsPieChart />
             </Panel>
           </Grid>
         </Grid>
       </Container>
+      
     </Dashboard>
   );
 }

@@ -6,5 +6,4 @@ import StakeholderPage from '../components/StakeholderPage';
 ReactOnRails.register({
   VendorPage,
   StakeholderPage,
-  Chart,
 });

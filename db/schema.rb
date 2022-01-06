@@ -10,7 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_230810) do
+ActiveRecord::Schema.define(version: 2022_01_05_154724) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "user_name", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "company_name", default: "", null: false
+    t.string "mobile_number", default: "", null: false
+    t.string "type"
+    t.string "street_address", default: "", null: false
+    t.string "city"
+    t.string "region"
+    t.string "eir_code"
+    t.string "country", default: "Ireland", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "sender_address_id"
+    t.integer "recipient_address_id"
+    t.integer "product_id", null: false
+    t.integer "status", default: 0, null: false
+    t.decimal "discount"
+    t.decimal "total_amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.text "description", default: "", null: false
+    t.integer "vendor_id", null: false
+    t.integer "status", default: 0, null: false
+    t.decimal "price", default: "0.0"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false

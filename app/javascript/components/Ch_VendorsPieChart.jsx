@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const Chart = (props) => {
+const Ch_VendorsPieChart = (props) => {
 
   return (
     <div>
@@ -13,10 +13,10 @@ const Chart = (props) => {
             type: 'pie',
           },
           title: {
-            text: 'Actionable Items'
+            text: 'Orders by Vendor'
           },
           tooltip: {
-            pointFormat: '{series.name}: <b>{point.y}</b>'
+            pointFormat: '<b>{point.y} orders</b>'
           },
           plotOptions: {
             series: {
@@ -27,33 +27,36 @@ const Chart = (props) => {
             }
         },
           series: [{
-            name: 'Actionable Items',
+            name: 'Vendor 1',
             colorByPoint: true,
             data: [{
-                name: 'Wrong Address',
+                name: 'Vendor 2',
                 y: 120,
                 sliced: true,
                 selected: true
             }, {
-                name: 'Stale Orders',
+                name: 'Vendor 3',
                 y: 41
             }, {
-                name: 'Failed Payments',
+                name: 'Vendor 4',
                 y: 15
             }, {
-                name: 'Undelivered',
-                y: 4.67
+                name: 'Vendor 5',
+                y: 52
             }, {
-                name: 'Other',
+                name: 'Vendor 6',
                 y: 21
             }]
-        }]
+          }],
+          credits: {
+            enabled: false
+          }
         }}
       />
     </div>
   );
 };
 
-Chart.propTypes = {};
+Ch_VendorsPieChart.propTypes = {};
 
-export default Chart;
+export default Ch_VendorsPieChart;
