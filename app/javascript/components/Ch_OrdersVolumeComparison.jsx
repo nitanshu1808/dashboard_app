@@ -1,6 +1,9 @@
 import React from 'react';
 import Highcharts from 'highcharts';
+import HC_exporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
+
+HC_exporting(Highcharts);
 
 const Ch_OrdersVolumeComparison = (props) => {
 

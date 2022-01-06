@@ -1,9 +1,11 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import drilldown from 'highcharts/modules/drilldown.js';
+import HC_exporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 
 drilldown(Highcharts);
+HC_exporting(Highcharts);
 
 const Ch_Top20Vendors = (props) => {
  function getSeriesData(arr){
