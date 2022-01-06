@@ -14,7 +14,6 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 const StakeholderPage = (props) => {
-  console.log(props);
   return (
     <ThemeProvider theme={theme}>
       <Dashboard
