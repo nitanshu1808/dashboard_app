@@ -6,10 +6,10 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-import Ch_Top20Vendors from './Ch_Top20Vendors';
-import Ch_OrdersVolumeComparison from './Ch_OrdersVolumeComparison';
-import Dashboard from './Dashboard';
-import Panel from './Panel';
+import Ch_Top20Vendors from '../Ch_Top20Vendors';
+import Ch_OrdersVolumeComparison from '../Ch_OrdersVolumeComparison';
+import Dashboard from '../Dashboard';
+import Panel from '../Panel';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);

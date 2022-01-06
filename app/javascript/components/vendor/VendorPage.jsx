@@ -7,9 +7,8 @@ import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
-
-import Dashboard from './Dashboard';
-import Panel from './Panel';
+import Dashboard from '../Dashboard';
+import Panel from '../Panel';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
