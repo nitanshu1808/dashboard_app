@@ -7,7 +7,7 @@ class Stakeholder::DashboardController < ApplicationController
   end
 
   def profile_data
-    team_members = TeamMember.all
+    team_members = TeamMember.all.map { |member| member.attributes.merge({ full_name: member.full_name }) }
     @vendor_props = { name: 'Neato Inc', team_members: team_members }
   end
 

@@ -27,7 +27,7 @@ const TeamMemberTable = (props) => {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell component="th" scope="row">
-                    {contact.first_name} {contact.last_name}
+                    {contact.full_name}
                 </TableCell>
                 <TableCell>{contact.email_address}</TableCell>
                 <TableCell align="right">{contact.membership_type}</TableCell>
