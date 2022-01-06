@@ -7,7 +7,7 @@ class Stakeholder::DashboardController < ApplicationController
 
   def data
     orders = []
-    Order.all.each do |order|
+    Order.includes(:sender_address, :recipient_address, [product: :vendor]).each do |order|
       orders << {
         id: order.id,
         vendor_name: order.vendor_name,
@@ -23,7 +23,9 @@ class Stakeholder::DashboardController < ApplicationController
         product_id: order.product_id,
         product_name: order.product.name,
         product_description: order.product.description,
-        product_price: order.product.price
+        product_price: order.product.price,
+        sender_name: order.sender_address.user_name,
+        recipient_name: order.recipient_address.user_name
       }
     end
 
