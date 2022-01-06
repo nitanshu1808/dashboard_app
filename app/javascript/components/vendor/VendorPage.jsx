@@ -4,33 +4,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import Dashboard from '../Dashboard';
-import Panel from '../Panel';
+import Index from './Index';
+import Products from './Products';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
-
-const Index = (props) => {
-  return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={12} lg={12}>
-        <Panel title="Example Panel"></Panel>
-      </Grid>
-    </Grid>
-  );
-}
-
-const Products = (props) => {
-  return (
-    <Grid container spacing={3}>
-      <Grid item xs={12} md={12} lg={12}>
-        <Panel title="Products"></Panel>
-      </Grid>
-    </Grid>
-  );
-}
 
 const VendorPage = (props) => {
   return (
