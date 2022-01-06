@@ -34,7 +34,7 @@ const Ch_VendorsPieChart = (props) => {
             type: 'pie',
           },
           title: {
-            text: 'Orders by Vendor'
+            text: null
           },
           tooltip: {
             pointFormat: '<b>{point.y} orders</b>'
