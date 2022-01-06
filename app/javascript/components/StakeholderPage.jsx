@@ -8,7 +8,7 @@ import Dashboard from './Dashboard';
 import Panel from './Panel';
 import Ch_VendorsPieChart from './Ch_VendorsPieChart';
 const StakeholderPage = (props) => {
-
+  console.log(props);
   return (
     <Dashboard
       signOutPath={props.signOutPath}
@@ -24,7 +24,7 @@ const StakeholderPage = (props) => {
           </Grid>
           <Grid item xs={12} md={8} lg={9}>
             <Panel>
-              <Ch_VendorsPieChart />
+              <Ch_VendorsPieChart data={props.data}/>
             </Panel>
           </Grid>
         </Grid>
