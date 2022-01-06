@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
@@ -36,11 +37,21 @@ const Index = (props) => {
   );
 }
 
-const Products = (props) => {
+const Clients = (props) => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={12} lg={12}>
-        <Panel title="Products"></Panel>
+        <Panel title="Clients"></Panel>
+      </Grid>
+    </Grid>
+  );
+}
+
+const Vendors = (props) => {
+  return (
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={12} lg={12}>
+        <Panel title="Vendors"></Panel>
       </Grid>
     </Grid>
   );
@@ -54,12 +65,14 @@ const StakeholderPage = (props) => {
           signOutPath={props.signOutPath}
           sidebar={[
             ['Dashboard', '/stakeholder/dashboard', HomeOutlinedIcon],
-            ['Products', '/stakeholder/dashboard/products', CreateOutlinedIcon]
+            ['Clients', '/stakeholder/dashboard/clients', BusinessOutlinedIcon],
+            ['Vendors', '/stakeholder/dashboard/vendors', StorefrontOutlinedIcon]
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
               <Route exact path="/stakeholder/dashboard" element={<Index data={props.data} />} />
-              <Route path="/stakeholder/dashboard/products" element={<Products />} />
+              <Route path="/stakeholder/dashboard/clients" element={<Clients />} />
+              <Route path="/stakeholder/dashboard/vendors" element={<Vendors />} />
             </Routes>
           </Container>
         </Dashboard>

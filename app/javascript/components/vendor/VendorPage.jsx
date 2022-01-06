@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
@@ -15,24 +14,20 @@ theme = responsiveFontSizes(theme);
 
 const Index = (props) => {
   return (
-    <Grid item xs={12} md={12} lg={12}>
-      <Panel title="Example Panel"></Panel>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={12} lg={12}>
+        <Panel title="Example Panel"></Panel>
+      </Grid>
     </Grid>
   );
 }
 
-const Clients = (props) => {
+const Products = (props) => {
   return (
-    <Grid item xs={12} md={12} lg={12}>
-      <Panel title="Clients"></Panel>
-    </Grid>
-  );
-}
-
-const Vendors = (props) => {
-  return (
-    <Grid item xs={12} md={12} lg={12}>
-      <Panel title="Vendors"></Panel>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={12} lg={12}>
+        <Panel title="Products"></Panel>
+      </Grid>
     </Grid>
   );
 }
@@ -45,17 +40,13 @@ const VendorPage = (props) => {
           signOutPath={props.signOutPath}
           sidebar={[
             ['Dashboard', '/vendor/dashboard', HomeOutlinedIcon],
-            ['Clients', '/vendor/dashboard/clients', BusinessOutlinedIcon],
-            ['Vendors', '/vendor/dashboard/vendors', StorefrontOutlinedIcon]
+            ['Products', '/vendor/dashboard/products', CreateOutlinedIcon]
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Routes>
-                <Route exact path="/vendor/dashboard" element={<Index />} />
-                <Route path="/vendor/dashboard/clients" element={<Clients />} />
-                <Route path="/vendor/dashboard/vendors" element={ <Vendors /> } />
-              </Routes>
-            </Grid>
+            <Routes>
+              <Route exact path="/vendor/dashboard" element={<Index />} />
+              <Route path="/vendor/dashboard/products" element={<Products />} />
+            </Routes>
           </Container>
         </Dashboard>
       </ThemeProvider>
