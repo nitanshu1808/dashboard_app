@@ -19,7 +19,7 @@ const Dashboard = (props) => {
   const sidebarItems = props.sidebar.map(([name, icon]) =>
     <ListItem className="item" key={name} disablePadding>
       <ListItemButton className="button">
-        <ListItemIcon className="icon">
+        <ListItemIcon className="icon" >
           {icon}
         </ListItemIcon>
         <ListItemText className="name" primary={name}/>
