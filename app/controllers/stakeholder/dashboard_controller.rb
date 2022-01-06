@@ -3,12 +3,16 @@ class Stakeholder::DashboardController < ApplicationController
   before_action :verify_user
 
   def index
-    @stakeholder_props = { signOutPath: destroy_user_session_path, data: data, profile: profile_data }
+    @stakeholder_props = { signOutPath: destroy_user_session_path, data: data, vendors: vendors_data}
+  end
+
+  def vendors_data
+    Vendor.all.map { |vendor| vendor.attributes.merge({ full_name: vendor.full_name }) }
   end
 
   def profile_data
     team_members = TeamMember.all.map { |member| member.attributes.merge({ full_name: member.full_name }) }
-    @vendor_props = { name: 'Neato Inc', team_members: team_members }
+    { name: 'Neato Inc', team_members: team_members }
   end
 
   def data

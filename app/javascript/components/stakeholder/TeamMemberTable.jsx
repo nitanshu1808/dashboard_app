@@ -17,7 +17,7 @@ const TeamMemberTable = (props) => {
             <TableRow>
                 <TableCell>Full Name</TableCell>
                 <TableCell>Email Address</TableCell>
-                <TableCell align="right">Membership Type</TableCell>
+                {/* <TableCell align="right">Membership Type</TableCell> */}
             </TableRow>
             </TableHead>
             <TableBody>
@@ -29,8 +29,8 @@ const TeamMemberTable = (props) => {
                 <TableCell component="th" scope="row">
                     {contact.full_name}
                 </TableCell>
-                <TableCell>{contact.email_address}</TableCell>
-                <TableCell align="right">{contact.membership_type}</TableCell>
+                <TableCell>{contact.email}</TableCell>
+                {/* <TableCell align="right">{contact.membership_type}</TableCell> */}
                 </TableRow>
             ))}
             </TableBody>

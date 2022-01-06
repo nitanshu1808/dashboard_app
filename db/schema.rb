@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(version: 2022_01_06_192430) do
   create_table "team_members", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email_address"
+    t.string "email"
     t.string "membership_type"
+    t.integer "vendor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
