@@ -12,7 +12,7 @@ class Stakeholder::DashboardController < ApplicationController
         id: order.id,
         vendor_name: order.vendor_name&.titleize,
         status: order.status&.titleize,
-        created_at: order.created_at,
+        created_at: order.created_at.strftime('%d/%m/%Y'),
         updated_at: order.updated_at,
         discount: order.discount,
         total_amount: order.total_amount,

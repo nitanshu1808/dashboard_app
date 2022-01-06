@@ -9,12 +9,8 @@ const columns = [
   { field: 'status', headerName: 'Order Status', width: 130 },
   { field: 'sender_name', headerName: 'Sender Name', width: 130 },
   { field: 'recipient_name', headerName: 'Recipient Name', width: 130 },
-  {
-    field: 'total_amount',
-    headerName: 'Amount',
-    type: 'number',
-    width: 120,
-  },
+  { field: 'created_at', headerName: 'Created At', width: 130 },
+  { field: 'total_amount', headerName: 'Amount', type: 'number', width: 120 },
 ];
 
 const OrdersDataTable = (props) => {
