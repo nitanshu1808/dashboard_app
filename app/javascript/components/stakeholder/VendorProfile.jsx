@@ -8,10 +8,10 @@ const VendorProfile = ({profile}) => {
     <div>
       <h1>{ profile.name }</h1> 
       <div class='flex-with-gap'>
-        <SingleItemCard title={profile.contacts[0].name} subtitle={'Team Lead'} link='#' />
-        <SingleItemCard title={profile.contacts.length} subtitle={'Team Members'} />
+        <SingleItemCard title={profile.team_members[0].first_name} subtitle={'Team Lead'} link='#' />
+        <SingleItemCard title={profile.team_members.length} subtitle={'Team Members'} />
       </div>
-      <TeamMemberTable contacts={profile.contacts} />
+      <TeamMemberTable contacts={profile.team_members} />
     </div>
   );
 };

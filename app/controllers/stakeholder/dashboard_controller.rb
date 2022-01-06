@@ -7,11 +7,8 @@ class Stakeholder::DashboardController < ApplicationController
   end
 
   def profile_data
-    @vendor_props = { name: 'Neato Inc', contacts: [
-        { name: 'Jane Foley', member_type: 'Team Owner' },
-        { name: 'Tom Frank', member_type: 'Team Member' }
-      ]
-    }
+    team_members = TeamMember.all
+    @vendor_props = { name: 'Neato Inc', team_members: team_members }
   end
 
   def data
