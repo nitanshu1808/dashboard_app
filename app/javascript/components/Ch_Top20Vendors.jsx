@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Highcharts from 'highcharts';
 import drilldown from 'highcharts/modules/drilldown.js';
 import HighchartsReact from 'highcharts-react-official';
 
 drilldown(Highcharts);
 
-const Ch_VendorsPieChart = (props) => {
-
+const Ch_Top20Vendors = (props) => {
   function getSeriesData(arr){
     
     let vendor_groups = arr.reduce((y, x) => {
@@ -92,6 +91,6 @@ const Ch_VendorsPieChart = (props) => {
   );
 };
 
-Ch_VendorsPieChart.propTypes = {};
+Ch_Top20Vendors.propTypes = {};
 
-export default Ch_VendorsPieChart;
+export default Ch_Top20Vendors;
