@@ -65,12 +65,17 @@ const Ch_OrdersVolumeComparison = (props) => {
             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
             pointFormat: '<b>{point.name} ({point.y} orders)</b>'
           },
-         
+          plotOptions: {
+            series: {
+                grouping: false,
+                borderWidth: 0
+            }
+          },
           series: [{
             name: 'Previous Month',
             linkedTo: 'current',
             color: 'rgb(158, 159, 163)',
-            pointPlacement: 0.2,
+            pointPlacement: -0.2,
             data: chart_data.previous_month_data
           }, {
             name: 'Current Month',
@@ -80,6 +85,13 @@ const Ch_OrdersVolumeComparison = (props) => {
               enabled: true,
               matchByName: true
             },
+            dataLabels: [{
+              enabled: true,
+              inside: true,
+              style: {
+                  fontSize: '16px'
+              }
+            }],
             data: chart_data.current_month_data
           }],
           credits: {
