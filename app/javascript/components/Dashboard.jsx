@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Button from '@mui/material/Button';
@@ -16,11 +17,11 @@ import Typography from '@mui/material/Typography';
 import SendosoLogo from './sendoso-logo.png';
 
 const Dashboard = (props) => {
-  const sidebarItems = props.sidebar.map(([name, icon]) =>
+  const sidebarItems = props.sidebar.map(([name, path, Icon]) =>
     <ListItem className="item" key={name} disablePadding>
-      <ListItemButton className="button">
+      <ListItemButton className="button" component={Link} to={path}>
         <ListItemIcon className="icon">
-          {icon}
+          <Icon />
         </ListItemIcon>
         <ListItemText className="name" primary={name}/>
       </ListItemButton>
