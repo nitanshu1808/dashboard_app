@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,22 +10,27 @@ const SingleItemCard = ({ title, subtitle, link }) => {
   const navigateToLink = () => {
     window.location.href=link
   }
+  const titleVariant = () => {
+    if (link === undefined) {
+      return "h2";
+    }
+    return "h5";
+  }
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Team Member
-        </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant={titleVariant()} component="div">
           { title }
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           { subtitle }
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={navigateToLink()}>View Member</Button>
-      </CardActions>
+      { link !== undefined &&
+        <CardActions>
+          <Button size="small" onClick={navigateToLink()}>View Member</Button>
+        </CardActions>
+      }
     </Card>
   );
 };

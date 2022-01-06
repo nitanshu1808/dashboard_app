@@ -10,7 +10,7 @@ import Dashboard from '../Dashboard';
 import Index from './Index';
 import Clients from './Clients';
 import Vendors from './Vendors';
-
+import VendorProfile from './VendorProfile';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -24,13 +24,15 @@ const StakeholderPage = (props) => {
           sidebar={[
             ['Dashboard', '/stakeholder/dashboard', HomeOutlinedIcon],
             ['Clients', '/stakeholder/dashboard/clients', BusinessOutlinedIcon],
-            ['Vendors', '/stakeholder/dashboard/vendors', StorefrontOutlinedIcon]
+            ['Vendors', '/stakeholder/dashboard/vendors', StorefrontOutlinedIcon],
+            ['Profile', '/stakeholder/dashboard/vendors/profile', StorefrontOutlinedIcon]
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
               <Route exact path="/stakeholder/dashboard" element={<Index data={props.data} />} />
               <Route path="/stakeholder/dashboard/clients" element={<Clients />} />
               <Route path="/stakeholder/dashboard/vendors" element={<Vendors />} />
+              <Route path="/stakeholder/dashboard/vendors/profile" element={<VendorProfile profile={props.profile} />} />
             </Routes>
           </Container>
         </Dashboard>

@@ -3,7 +3,15 @@ class Stakeholder::DashboardController < ApplicationController
   before_action :verify_user
 
   def index
-    @stakeholder_props = { signOutPath: destroy_user_session_path, data: data }
+    @stakeholder_props = { signOutPath: destroy_user_session_path, data: data, profile: profile_data }
+  end
+
+  def profile_data
+    @vendor_props = { name: 'Neato Inc', contacts: [
+        { name: 'Jane Foley', member_type: 'Team Owner' },
+        { name: 'Tom Frank', member_type: 'Team Member' }
+      ]
+    }
   end
 
   def data
