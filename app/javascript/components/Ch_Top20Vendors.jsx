@@ -6,7 +6,7 @@ import HighchartsReact from 'highcharts-react-official';
 drilldown(Highcharts);
 
 const Ch_Top20Vendors = (props) => {
-  function getSeriesData(arr){
+ function getSeriesData(arr){
     
     let vendor_groups = arr.reduce((y, x) => {
       (y[x['vendor_name']] = y[x['vendor_name']] || []).push(x);
