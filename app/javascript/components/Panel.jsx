@@ -11,8 +11,7 @@ const Panel = (props) => {
   }
 
   return (
-    <Paper sx={{ p: 2 }}>
-      <Typography component="h2" variant="h6" color="primary">{props.title}</Typography>
+    <Paper sx={{ p: props.noPadding ? 0 : 2, ...props.sx }}>
       {title}
 
       {props.children}
