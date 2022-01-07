@@ -48,15 +48,13 @@ const Dashboard = (props) => {
           <div id="sidebar-header-name">{props.currentUserName}</div>
 
           <div id="sidebar-header-icons">
-            <Tooltip title="Logout">
-              <form action={props.signOutPath} method="POST" ref={formRef}>
-                <input type="hidden" name="authenticity_token" value={props.token} />
-                <input type="hidden" name="_method" value="delete"/>
-                <IconButton type="submit" onClick={handleClick}>
-                  <LogoutOutlinedIcon />
-                </IconButton>
-              </form>
-            </Tooltip>
+            <form action={props.signOutPath} method="POST" ref={formRef}>
+              <input type="hidden" name="authenticity_token" value={props.token} />
+              <input type="hidden" name="_method" value="delete"/>
+              <Button variant="outlined" size="small" startIcon={< LogoutOutlinedIcon/>} type="submit" onClick={handleClick}>
+                Logout
+              </Button>
+            </form>
           </div>
         </div>
 
