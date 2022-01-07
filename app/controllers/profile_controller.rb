@@ -1,8 +1,15 @@
 class ProfileController < ApplicationController
   # before_action :authenticate_user!
+  before_action :set_vendor
 
   def index
-    team_members = TeamMember.where(vendor_id: params[:vendor_id]).map { |member| member.attributes.merge({ full_name: member.full_name }) }
-    render json: { name: 'Neato Inc', team_members: team_members }.to_json
+    team_members = @vendor.team_members.map { |member| member.attributes.merge({ full_name: member.full_name }) }
+    render json: { name: @vendor.first_name, team_members: team_members }.to_json
+  end
+
+  private
+
+  def set_vendor
+    @vendor = Vendor.find(params[:vendor_id])
   end
 end

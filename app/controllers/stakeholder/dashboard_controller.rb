@@ -10,11 +10,6 @@ class Stakeholder::DashboardController < ApplicationController
     Vendor.all.map { |vendor| vendor.attributes.merge({ full_name: vendor.full_name }) }
   end
 
-  def profile_data
-    team_members = TeamMember.all.map { |member| member.attributes.merge({ full_name: member.full_name }) }
-    { name: 'Neato Inc', team_members: team_members }
-  end
-
   def data
     orders = []
     Order.includes(:sender_address, :recipient_address, [product: :vendor]).each do |order|

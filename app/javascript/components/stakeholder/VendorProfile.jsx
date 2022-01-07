@@ -10,10 +10,9 @@ const VendorProfile = () => {
 
   useEffect (() => {
     getProfile(params.vendorId).then((response) => {
-      console.log(response.data);
       setProfile(response.data);
     });
-  }, [params]);
+  }, []);
 
   return (
     <div>
