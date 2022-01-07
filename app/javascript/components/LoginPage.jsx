@@ -13,9 +13,12 @@ import SendosoLogo from './sendoso-logo.png';
 
 const LoginPage = (props) => {
   const [loading, setLoading] = useState(false);
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setLoading(true);
+    formRef.current.submit();
   }
+  const formRef = React.createRef();
 
   return (
     <Paper sx={{ margin: '100px auto', padding: '20px', width: 300 }}>
@@ -23,9 +26,9 @@ const LoginPage = (props) => {
 
       <Typography sx={{ textAlign: 'center', p: 2 }}>Welcome Back!</Typography>
 
-      <form action={props.url} method="POST">
+      <form action={props.url} method="POST" ref={formRef}>
         <input type="hidden" name="authenticity_token" value={props.token} />
-        
+
         <FormControl variant="standard" fullWidth sx={{ mt: 1 }}>
           <InputLabel>Email</InputLabel>
           <Input name="user[email]" />
