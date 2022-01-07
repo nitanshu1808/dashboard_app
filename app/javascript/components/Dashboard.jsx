@@ -44,9 +44,7 @@ const Dashboard = (props) => {
       <div id="sidebar">
         <div id="sidebar-header">
           <img id="sendoso-logo" src={SendosoLogo}/>
-
           <div id="sidebar-header-name">{props.currentUserName}</div>
-
           <div id="sidebar-header-icons">
             <form action={props.signOutPath} method="POST" ref={formRef}>
               <input type="hidden" name="authenticity_token" value={props.token} />
