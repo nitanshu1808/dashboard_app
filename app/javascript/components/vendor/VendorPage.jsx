@@ -24,7 +24,7 @@ const VendorPage = (props) => {
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
-              <Route exact path="/vendor/dashboard" element={<Index data={props.data} />} />
+              <Route exact path="/vendor/dashboard" element={<Index data={props.data} orders={props.orders}/>} />
               <Route path="/vendor/dashboard/products" element={<Products data={props.data} />} />
             </Routes>
           </Container>

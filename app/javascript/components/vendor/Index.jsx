@@ -7,6 +7,7 @@ import ActionCenter from '../ActionCenter';
 import LiveMap from '../LiveMap';
 import Panel from '../Panel';
 import ProductsDataTable from '../../DataTables/ProductsDataTable';
+import VendorOrdersDataTable from '../../DataTables/VendorOrdersDataTable';
 
 const Index = (props) => {
   return (
@@ -47,6 +48,14 @@ const Index = (props) => {
             ['Product(s) Are Due To Ship Today', 2, 'error', '/', LocalShippingOutlinedIcon],
             ['Product(s) Are Low On Stock', 4, 'warning', '/', Inventory2OutlinedIcon]
           ]} />
+        </Panel>
+      </Grid>
+
+      <Grid item xs={12} md={12} lg={12}>
+        <Panel title='Orders'>
+          <VendorOrdersDataTable
+            orders={props.orders}
+          />
         </Panel>
       </Grid>
 
