@@ -29,7 +29,6 @@ const Index = (props) => {
               borderRadius: 5
             }}
             variant="h4">
-            Welcome To Your Dashboard!
           </Typography>
           <Typography
             sx={{

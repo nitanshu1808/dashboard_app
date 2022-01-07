@@ -45,7 +45,7 @@ body, html {
 }
 
 #sidebar-header-name {
-  padding-top: 20px;
+  padding: 20px 0;
   font-size: 110%;
 }
 
