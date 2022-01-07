@@ -17,7 +17,7 @@ const VendorProfile = () => {
   return (
     <div>
       <h1>{ profile.name }</h1> 
-      <div>
+      <div className='profile-container'>
         <div className='flex-with-gap'>
           <SingleItemCard title={profile.team_members[0]?.full_name} subtitle={'Team Lead'} link='#' />
           <SingleItemCard title={String(profile.team_members.length)} subtitle={'Team Members'} />

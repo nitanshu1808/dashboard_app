@@ -11,14 +11,14 @@ body {
   font-family: Helvetica;
   margin: 0;
 }
-/*
-button, a {
+
+.profile-container button, .profile-container a {
   color: var(--primary-color) !important;
 }
 
-button:hover, a:hover {
+.profile-container button:hover, .profile-container a:hover {
   background-color: var(--primary-hover-color) !important;
-} */
+}
 
 .flex-with-gap {
   display: flex;

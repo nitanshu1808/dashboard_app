@@ -7,7 +7,9 @@ const Vendors = ({ vendors }) => {
   return (
     <div>
       <h1>Vendors</h1>
-      <TeamMemberTable contacts={vendors} />
+      <div className='profile-container'>
+        <TeamMemberTable contacts={vendors} />
+      </div>
     </div>
   );
 }
