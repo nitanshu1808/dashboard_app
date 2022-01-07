@@ -21,4 +21,10 @@ class Vendor::DashboardController < ApplicationController
 
     products
   end
+
+  def verify_user
+    return if current_user.nil?
+
+    redirect_to stakeholder_dashboard_index_path if current_user.stakeholder?
+  end
 end
