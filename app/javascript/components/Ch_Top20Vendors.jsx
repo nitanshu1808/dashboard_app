@@ -24,20 +24,16 @@ const Ch_Top20Vendors = (props) => {
         selected: true,
         drilldown: vendor_name
       }
-    }).sort((a, b) => {
-      var x = a[y]; var y = b[y];
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     })
+    .sort((a, b) => b["y"] - a["y"])
     .slice(0, 20);
 
     let drilldown_data =  Object.keys(vendor_groups)
     .map(vendor_name => {
-      
       let status_groups = vendor_groups[vendor_name].reduce((y, x) => {
         (y[x['status']] = y[x['status']] || []).push(x);
         return y;
       }, {});
-
       return {
         name: vendor_name,
         id: vendor_name,

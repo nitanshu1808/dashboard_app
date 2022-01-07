@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import ProductionQuantityLimitsOutlinedIcon
   from '@mui/icons-material/ProductionQuantityLimitsOutlined';
+import Ch_OrdersByStatus from '../Ch_OrdersByStatus';
 import Ch_Top20Vendors from '../Ch_Top20Vendors';
 import Ch_OrdersVolumeComparison from '../Ch_OrdersVolumeComparison';
 import ActionCenter from '../ActionCenter';
@@ -52,14 +53,20 @@ const Index = (props) => {
         </Panel>
       </Grid>
 
-      <Grid item xs={12} md={12} lg={12}>
+      <Grid item xs={12} md={12} lg={6}>
+        <Panel title='All Orders By Status'>
+          <Ch_OrdersByStatus data={props.data}/>
+        </Panel>
+      </Grid>
+
+      <Grid item xs={12} md={12} lg={6}>
         <Panel title='Top 20 Vendors'>
           <Ch_Top20Vendors data={props.data}/>
         </Panel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <Panel title='Orders volume comparison last month'>
+        <Panel title='Orders Volume Comparison ( Last Month )'>
           <Ch_OrdersVolumeComparison data={props.data}/>
         </Panel>
       </Grid>
