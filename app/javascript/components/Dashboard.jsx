@@ -17,6 +17,12 @@ import Typography from '@mui/material/Typography';
 import SendosoLogo from './sendoso-logo.png';
 
 const Dashboard = (props) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    formRef.current.submit();
+  }
+  const formRef = React.createRef();
+
   const sidebarItems = props.sidebar.map(([name, path, Icon]) =>
     <ListItem className="item" key={name} disablePadding>
       <ListItemButton className="button" component={Link} to={path}>
@@ -43,9 +49,10 @@ const Dashboard = (props) => {
               </IconButton>
             </Tooltip>
             <Tooltip title="Logout">
-              <form action={props.signOutPath} method="POST">
+              <form action={props.signOutPath} method="POST" ref={formRef}>
+                <input type="hidden" name="authenticity_token" value={props.token} />
                 <input type="hidden" name="_method" value="delete"/>
-                <IconButton type="submit">
+                <IconButton type="submit" onClick={handleClick}>
                   <LogoutOutlinedIcon />
                 </IconButton>
               </form>

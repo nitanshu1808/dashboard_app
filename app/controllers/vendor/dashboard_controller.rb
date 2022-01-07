@@ -3,7 +3,11 @@ class Vendor::DashboardController < ApplicationController
   before_action :verify_user
 
   def index
-    @vendor_props = { signOutPath: destroy_user_session_path, data: data }
+    @vendor_props = {
+      signOutPath: destroy_user_session_path,
+      token: form_authenticity_token,
+      data: data
+    }
   end
 
   def data

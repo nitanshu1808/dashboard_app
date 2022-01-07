@@ -21,6 +21,7 @@ const StakeholderPage = (props) => {
       <ThemeProvider theme={theme}>
         <Dashboard
           signOutPath={props.signOutPath}
+          token={props.token}
           sidebar={[
             ['Dashboard', '/stakeholder/dashboard', HomeOutlinedIcon],
             ['Clients', '/stakeholder/dashboard/clients', BusinessOutlinedIcon],
