@@ -14,7 +14,8 @@ class Vendor::DashboardController < ApplicationController
         product_description: product.description,
         product_price: product.price,
         order_count: product.orders.size,
-        created_at: product.created_at.strftime('%d/%m/%Y')
+        created_at: product.created_at.strftime('%d/%m/%Y'),
+        status: product.status&.titleize
       }
     end
 

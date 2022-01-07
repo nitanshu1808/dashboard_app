@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import ActionCenter from '../ActionCenter';
 import LiveMap from '../LiveMap';
 import Panel from '../Panel';
+import ProductsDataTable from '../../DataTables/ProductsDataTable';
 
 const Index = (props) => {
   return (
@@ -50,10 +51,13 @@ const Index = (props) => {
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <Panel title='Orders'>
-          {/* Table here */}
+        <Panel title='Products'>
+          <ProductsDataTable
+            data={props.data}
+          />
         </Panel>
       </Grid>
+
     </Grid>
   );
 }

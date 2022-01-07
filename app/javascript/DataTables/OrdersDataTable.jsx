@@ -18,7 +18,6 @@ const OrdersDataTable = (props) => {
 
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <p>Order Details</p>
       <DataGrid
         rows={rows}
         columns={columns}

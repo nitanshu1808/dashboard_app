@@ -8,7 +8,6 @@ import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/s
 import Dashboard from '../Dashboard';
 import Index from './Index';
 import Products from './Products';
-import ProductsDataTable from '../../DataTables/ProductsDataTable';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -25,12 +24,9 @@ const VendorPage = (props) => {
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
-              <Route exact path="/vendor/dashboard" element={<Index />} />
-              <Route path="/vendor/dashboard/products" element={<Products />} />
+              <Route exact path="/vendor/dashboard" element={<Index data={props.data} />} />
+              <Route path="/vendor/dashboard/products" element={<Products data={props.data} />} />
             </Routes>
-            <ProductsDataTable
-              data={props.data}
-            />
           </Container>
         </Dashboard>
       </ThemeProvider>

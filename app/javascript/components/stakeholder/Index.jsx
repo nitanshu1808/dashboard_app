@@ -9,6 +9,7 @@ import Ch_OrdersVolumeComparison from '../Ch_OrdersVolumeComparison';
 import ActionCenter from '../ActionCenter';
 import LiveMap from '../LiveMap';
 import Panel from '../Panel';
+import OrdersDataTable from '../../DataTables/OrdersDataTable';
 
 const Index = (props) => {
   return (
@@ -63,8 +64,19 @@ const Index = (props) => {
           <Ch_OrdersVolumeComparison data={props.data}/>
         </Panel>
       </Grid>
+
+      <Grid item xs={12} md={12} lg={12}>
+        <Panel title='Orders'>
+          <OrdersDataTable
+            data={props.data}
+          />
+        </Panel>
+      </Grid>
     </Grid>
   );
 }
 
 export default Index;
+
+
+

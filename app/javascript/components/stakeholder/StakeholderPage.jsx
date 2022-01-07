@@ -10,7 +10,7 @@ import Dashboard from '../Dashboard';
 import Index from './Index';
 import Clients from './Clients';
 import Vendors from './Vendors';
-import OrdersDataTable from '../../DataTables/OrdersDataTable';
+
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -32,9 +32,6 @@ const StakeholderPage = (props) => {
               <Route path="/stakeholder/dashboard/clients" element={<Clients />} />
               <Route path="/stakeholder/dashboard/vendors" element={<Vendors />} />
             </Routes>
-            <OrdersDataTable
-              data={props.data}
-            />
           </Container>
         </Dashboard>
       </ThemeProvider>
