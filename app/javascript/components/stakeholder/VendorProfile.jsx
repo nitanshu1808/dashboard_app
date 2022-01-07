@@ -16,12 +16,4 @@ const VendorProfile = ({profile}) => {
   );
 };
 
-VendorProfile.propTypes = {
-  name: PropTypes.string.isRequired,
-  contacts: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    member_type: PropTypes.string
-  })),
-};
-
 export default VendorProfile;

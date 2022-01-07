@@ -6,6 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Link } from "react-router-dom";
+  
 
 const TeamMemberTable = (props) => {
   return (
@@ -15,8 +17,8 @@ const TeamMemberTable = (props) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell>Full Name</TableCell>
-                <TableCell>Email Address</TableCell>
+                <TableCell><b>Full Name</b></TableCell>
+                <TableCell><b>Email Address</b></TableCell>
                 {/* <TableCell align="right">Membership Type</TableCell> */}
             </TableRow>
             </TableHead>
@@ -27,7 +29,9 @@ const TeamMemberTable = (props) => {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell component="th" scope="row">
-                    {contact.full_name}
+                    <Link to={`/stakeholder/dashboard/vendors/${contact.id}/profile`}>
+                        {contact.full_name}
+                    </Link>
                 </TableCell>
                 <TableCell>{contact.email}</TableCell>
                 {/* <TableCell align="right">{contact.membership_type}</TableCell> */}

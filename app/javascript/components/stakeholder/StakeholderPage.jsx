@@ -25,14 +25,13 @@ const StakeholderPage = (props) => {
             ['Dashboard', '/stakeholder/dashboard', HomeOutlinedIcon],
             ['Clients', '/stakeholder/dashboard/clients', BusinessOutlinedIcon],
             ['Vendors', '/stakeholder/dashboard/vendors', StorefrontOutlinedIcon],
-            // ['Profile', '/stakeholder/dashboard/vendors/profile', StorefrontOutlinedIcon]
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
               <Route exact path="/stakeholder/dashboard" element={<Index data={props.data} />} />
               <Route path="/stakeholder/dashboard/clients" element={<Clients />} />
               <Route path="/stakeholder/dashboard/vendors" element={<Vendors vendors={props.vendors}/>} />
-              {/* <Route path="/stakeholder/dashboard/vendors/profile" element={<VendorProfile profile={props.profile} />} /> */}
+              <Route path="/stakeholder/dashboard/vendors/:vendorId/profile" element={<VendorProfile />} />
             </Routes>
           </Container>
         </Dashboard>

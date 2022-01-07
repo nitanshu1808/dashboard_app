@@ -13,11 +13,11 @@ body {
   margin: 0;
 }
 
-button {
+button, a {
   color: var(--primary-color) !important;
 }
 
-button:hover {
+button:hover, a:hover {
   background-color: var(--primary-hover-color) !important;
 }
 
