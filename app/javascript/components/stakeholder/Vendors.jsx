@@ -8,7 +8,7 @@ const Vendors = ({ vendors }) => {
     <div>
       <h1>Vendors</h1>
       <div className='profile-container'>
-        <TeamMemberTable contacts={vendors} />
+        <TeamMemberTable contacts={vendors} canNavigate={true}/>
       </div>
     </div>
   );

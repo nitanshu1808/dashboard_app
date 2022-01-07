@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
   
-const TeamMemberTable = (props) => {
+const TeamMemberTable = ({ contacts, canNavigate }) => {
   return (
     <div>
         <h3>Team</h3>
@@ -18,22 +18,28 @@ const TeamMemberTable = (props) => {
             <TableRow>
                 <TableCell><b>Full Name</b></TableCell>
                 <TableCell><b>Email Address</b></TableCell>
-                {/* <TableCell align="right">Membership Type</TableCell> */}
+                { canNavigate &&
+                    <TableCell align="right"><b>Membership Type</b></TableCell>
+                }
             </TableRow>
             </TableHead>
             <TableBody>
-            {props.contacts.map((contact) => (
+            {contacts.map((contact) => (
                 <TableRow
                 key={contact.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell component="th" scope="row">
-                    <Link to={`/stakeholder/dashboard/vendors/${contact.id}/profile`}>
-                        {contact.full_name}
-                    </Link>
+                    {contact.full_name}
                 </TableCell>
                 <TableCell>{contact.email}</TableCell>
-                {/* <TableCell align="right">{contact.membership_type}</TableCell> */}
+                { canNavigate &&
+                    <TableCell align="right">
+                        <Link to={`/stakeholder/dashboard/vendors/${contact.id}/profile`}>
+                            View Vendor
+                        </Link>
+                    </TableCell>
+                }
                 </TableRow>
             ))}
             </TableBody>

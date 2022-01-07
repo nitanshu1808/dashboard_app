@@ -12,7 +12,7 @@ const SingleItemCard = ({ title, subtitle, link }) => {
   }
   const titleVariant = () => {
     if (link === undefined) {
-      return "h2";
+      return "h3";
     }
     return "h5";
   }

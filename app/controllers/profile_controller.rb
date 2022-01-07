@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
 
   def index
     team_members = @vendor.team_members.map { |member| member.attributes.merge({ full_name: member.full_name }) }
-    render json: { name: @vendor.first_name, team_members: team_members }.to_json
+    render json: { name: @vendor.first_name, funds: '$195,000', team_members: team_members }.to_json
   end
 
   private
