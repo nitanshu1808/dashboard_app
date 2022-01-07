@@ -4,9 +4,10 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    @sign_in_props = { url: user_session_path, token: form_authenticity_token }
+    super
+  end
 
   # POST /resource/sign_in
   # def create
