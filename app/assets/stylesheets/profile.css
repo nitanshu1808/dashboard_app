@@ -1,0 +1,26 @@
+:root {
+  --primary-color: rgb(243, 112, 33);
+  --primary-hover-color: rgb(255, 248, 244);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+body {
+  font-family: Helvetica;
+  margin: 0;
+}
+
+.profile-container button, .profile-container a {
+  color: var(--primary-color) !important;
+}
+
+.profile-container button:hover, .profile-container a:hover {
+  background-color: var(--primary-hover-color) !important;
+}
+
+.flex-with-gap {
+  display: flex;
+  gap: 20px;
+}

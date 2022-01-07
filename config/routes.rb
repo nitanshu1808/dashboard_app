@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   namespace 'vendor' do
     resources :dashboard, only: :index
+    
+  end
+
+  resources :vendor do
+    resources :profile, only: :index
   end
 
   namespace 'stakeholder' do
