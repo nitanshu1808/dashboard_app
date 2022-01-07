@@ -1,5 +1,6 @@
 class Vendor::DashboardController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_user
 
   def index
     @vendor_props = { signOutPath: destroy_user_session_path, data: data }
