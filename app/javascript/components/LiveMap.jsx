@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from 'd3';
 import worldData from './WorldData';
 
-const LiveMap = ({ dimensions, frequency }) => {
+const LiveMap = ({ dimensions, speed, frequency }) => {
   const svgRef = React.useRef(null);
   const { width, height } = dimensions;
 
@@ -122,7 +122,7 @@ const LiveMap = ({ dimensions, frequency }) => {
           .transition()
           .ease(d3.easeLinear)
           .attr("stroke-dashoffset", 0)
-          .duration(1000)
+          .duration(speed)
           .on("end", () => {
             const end = svg.append('circle')
                   .attr("cx", projection(to)[0])
@@ -148,7 +148,7 @@ const LiveMap = ({ dimensions, frequency }) => {
                 .transition()
                 .ease(d3.easeLinear)
                 .attr("stroke-dashoffset", length)
-                .duration(1000)
+                .duration(speed)
                 .on("end", () => {
                   smallDelay(() => {
                     lineReverse.remove();
