@@ -37,8 +37,8 @@ const SingleItemCard = ({ title, subtitle, link }) => {
 
 SingleItemCard.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  subtitle: PropTypes.string,
+  link: PropTypes.string
 };
 
 export default SingleItemCard;

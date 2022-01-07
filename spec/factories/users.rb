@@ -9,6 +9,9 @@ FactoryBot.define do
 
   factory :vendor, parent: :user, class: Vendor.name do
     type { Vendor.name }
+    after :create do |vendor|
+      create_list :team_member, 15, vendor: vendor
+    end
   end
 
   factory :stake_holder, parent: :user, class: StakeHolder.name do
