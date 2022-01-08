@@ -18,6 +18,7 @@ const VendorPage = (props) => {
       <ThemeProvider theme={theme}>
         <Dashboard
           signOutPath={props.signOutPath}
+          token={props.token}
           sidebar={[
             ['Dashboard', '/vendor/dashboard', HomeOutlinedIcon],
             ['Products', '/vendor/dashboard/products', CreateOutlinedIcon]
