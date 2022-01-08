@@ -19,7 +19,7 @@ const TeamMemberTable = ({ contacts, canNavigate }) => {
                 <TableCell><b>Full Name</b></TableCell>
                 <TableCell><b>Email Address</b></TableCell>
                 { canNavigate &&
-                    <TableCell align="right"><b>Membership Type</b></TableCell>
+                    <TableCell align="right"><b>Actions</b></TableCell>
                 }
             </TableRow>
             </TableHead>

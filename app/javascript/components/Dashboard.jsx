@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -23,15 +22,21 @@ const Dashboard = (props) => {
   }
   const formRef = React.createRef();
 
+  const sidebarItem = (name, path, Icon) => {
+    return (
+      <ListItem className="item" key={name} disablePadding>
+        <ListItemButton className="button" component={Link} to={path}>
+          <ListItemIcon className="icon">
+            <Icon />
+          </ListItemIcon>
+          <ListItemText className="name" primary={name}/>
+        </ListItemButton>
+      </ListItem>
+    )
+  }
+
   const sidebarItems = props.sidebar.map(([name, path, Icon]) =>
-    <ListItem className="item" key={name} disablePadding>
-      <ListItemButton className="button" component={Link} to={path}>
-        <ListItemIcon className="icon">
-          <Icon />
-        </ListItemIcon>
-        <ListItemText className="name" primary={name}/>
-      </ListItemButton>
-    </ListItem>
+    sidebarItem(name, path, Icon) 
   );
 
   return (
@@ -39,24 +44,15 @@ const Dashboard = (props) => {
       <div id="sidebar">
         <div id="sidebar-header">
           <img id="sendoso-logo" src={SendosoLogo}/>
-
-          <div id="sidebar-header-name"><Typography variant="h6">User Name</Typography></div>
-
+          <div id="sidebar-header-name">{props.currentUserName}</div>
           <div id="sidebar-header-icons">
-            <Tooltip title="Settings">
-              <IconButton>
-                <SettingsOutlinedIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Logout">
-              <form action={props.signOutPath} method="POST" ref={formRef}>
-                <input type="hidden" name="authenticity_token" value={props.token} />
-                <input type="hidden" name="_method" value="delete"/>
-                <IconButton type="submit" onClick={handleClick}>
-                  <LogoutOutlinedIcon />
-                </IconButton>
-              </form>
-            </Tooltip>
+            <form action={props.signOutPath} method="POST" ref={formRef}>
+              <input type="hidden" name="authenticity_token" value={props.token} />
+              <input type="hidden" name="_method" value="delete"/>
+              <Button variant="outlined" size="small" startIcon={< LogoutOutlinedIcon/>} type="submit" onClick={handleClick}>
+                Logout
+              </Button>
+            </form>
           </div>
         </div>
 

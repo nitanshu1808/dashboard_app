@@ -7,7 +7,8 @@ class Stakeholder::DashboardController < ApplicationController
       signOutPath: destroy_user_session_path,
       token: form_authenticity_token,
       data: data,
-      vendors: vendors_data
+      vendors: vendors_data,
+      current_user_name: current_user.full_name
     }
   end
 

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
@@ -20,12 +21,14 @@ const StakeholderPage = (props) => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Dashboard
+          currentUserName={props.current_user_name}
           signOutPath={props.signOutPath}
           token={props.token}
           sidebar={[
             ['Dashboard', '/stakeholder/dashboard', HomeOutlinedIcon],
             ['Clients', '/stakeholder/dashboard/clients', BusinessOutlinedIcon],
             ['Vendors', '/stakeholder/dashboard/vendors', StorefrontOutlinedIcon],
+            ['Settings', '#', SettingsOutlinedIcon],
           ]}>
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Routes>
