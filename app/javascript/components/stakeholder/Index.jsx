@@ -83,19 +83,19 @@ const Index = (props) => {
       </Grid>
 
       <Grid item xs={12} md={12} lg={6}>
-        <SwitchablePanel panels={panels} defaultPanel="orders-status-graph"></SwitchablePanel>
+        <SwitchablePanel id="p1" panels={panels} defaultPanel="orders-status-graph"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={6}>
-        <SwitchablePanel panels={panels} defaultPanel="vendors-top-20"></SwitchablePanel>
+        <SwitchablePanel id="p2" panels={panels} defaultPanel="vendors-top-20"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <SwitchablePanel panels={panels} defaultPanel="vendor-orders-comparison"></SwitchablePanel>
+        <SwitchablePanel id="p3" panels={panels} defaultPanel="vendor-orders-comparison"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <SwitchablePanel panels={panels} defaultPanel="orders-table"></SwitchablePanel>
+        <SwitchablePanel id="p4" panels={panels} defaultPanel="orders-table"></SwitchablePanel>
       </Grid>
     </Grid>
   );

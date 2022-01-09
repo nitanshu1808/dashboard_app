@@ -7,13 +7,15 @@ import MenuItem from '@mui/material/MenuItem';
 import Panel from './Panel';
 
 const SwitchablePanel = (props) => {
-  const [panel, setPanel] = useState(props.defaultPanel);
+  const storageKey = `switchable-${props.id}`;
+  const [panel, setPanel] = useState(localStorage.getItem(storageKey) || props.defaultPanel);
   const [menuOpen, setMenuOpen] = useState(false);
   const anchorRef = React.useRef(null);
   const open = () => setMenuOpen(true);
   const close = () => setMenuOpen(false);
   const choose = (panel) => {
     setPanel(panel);
+    localStorage.setItem(storageKey, panel);
     close();
   }
 
