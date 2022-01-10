@@ -6,16 +6,18 @@ const DataGridPersistence = (storageKey) => {
     hideifyColumns: (columns) => columns
   };
 
+  const [dirty, setDirty] = useState(false);
+
   const [sort, setSort] = useState(JSON.parse(localStorage.getItem(`${storageKey}-sort`)));
   const changeSort = (sort) => {
     setSort(sort);
-    localStorage.setItem(`${storageKey}-sort`, JSON.stringify(sort));
+    setDirty(true);
   }
 
   const [filter, setFilter] = useState(JSON.parse(localStorage.getItem(`${storageKey}-filter`)));
   const changeFilter = (filter) => {
     setFilter(filter);
-    localStorage.setItem(`${storageKey}-filter`, JSON.stringify(filter));
+    setDirty(true);
   }
 
   const [hidden, setHidden] = useState(JSON.parse(localStorage.getItem(`${storageKey}-hidden`)) || {});
@@ -27,12 +29,19 @@ const DataGridPersistence = (storageKey) => {
       updated[column.field] = true;
     }
     setHidden(updated);
-    localStorage.setItem(`${storageKey}-hidden`, JSON.stringify(updated));
+    setDirty(true);
   }
   const hideifyColumns = (columns) => columns.map((column) => {
     column.hide = hidden[column.field];
     return column;
   });
+
+  const save = () => {
+    localStorage.setItem(`${storageKey}-sort`, JSON.stringify(sort));
+    localStorage.setItem(`${storageKey}-filter`, JSON.stringify(filter));
+    localStorage.setItem(`${storageKey}-hidden`, JSON.stringify(hidden));
+    setDirty(false);
+  }
 
   const attributes = {
     ...(sort && {
@@ -48,7 +57,9 @@ const DataGridPersistence = (storageKey) => {
 
   return {
     attributes,
-    hideifyColumns
+    hideifyColumns,
+    dirty,
+    save
   };
 }
 
