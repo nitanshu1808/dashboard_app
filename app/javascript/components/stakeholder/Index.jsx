@@ -21,7 +21,8 @@ const Index = (props) => {
     },
     'orders-table': {
       title: 'Orders',
-      content: <OrdersDataTable data={props.data} />
+      persistence: true,
+      content: (persistence) => <OrdersDataTable data={props.data} persistence={persistence} />
     },
     'graphs': {
       header: true,
