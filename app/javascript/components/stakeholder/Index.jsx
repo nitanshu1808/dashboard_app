@@ -11,8 +11,36 @@ import ActionCenter from '../ActionCenter';
 import LiveMap from '../LiveMap';
 import Panel from '../Panel';
 import OrdersDataTable from '../../DataTables/OrdersDataTable';
+import SwitchablePanel from '../SwitchablePanel';
 
 const Index = (props) => {
+  const panels = {
+    'tables': {
+      header: true,
+      title: 'Tables'
+    },
+    'orders-table': {
+      title: 'Orders',
+      content: <OrdersDataTable data={props.data} />
+    },
+    'graphs': {
+      header: true,
+      title: 'Graphs'
+    },
+    'orders-status-graph': {
+      title: 'All Orders By Status',
+      content: <Ch_OrdersByStatus data={props.data}/>
+    },
+    'vendors-top-20': {
+      title: 'Top 20 Vendors',
+      content: <Ch_Top20Vendors data={props.data}/>
+    },
+    'vendor-orders-comparison': {
+      title: 'Orders Volume Comparison (Last Month)',
+      content: <Ch_OrdersVolumeComparison data={props.data}/>
+    }
+  }
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={7} lg={7}>
@@ -55,35 +83,22 @@ const Index = (props) => {
       </Grid>
 
       <Grid item xs={12} md={12} lg={6}>
-        <Panel title='All Orders By Status'>
-          <Ch_OrdersByStatus data={props.data}/>
-        </Panel>
+        <SwitchablePanel id="p1" panels={panels} defaultPanel="orders-status-graph"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={6}>
-        <Panel title='Top 20 Vendors'>
-          <Ch_Top20Vendors data={props.data}/>
-        </Panel>
+        <SwitchablePanel id="p2" panels={panels} defaultPanel="vendors-top-20"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <Panel title='Orders Volume Comparison ( Last Month )'>
-          <Ch_OrdersVolumeComparison data={props.data}/>
-        </Panel>
+        <SwitchablePanel id="p3" panels={panels} defaultPanel="vendor-orders-comparison"></SwitchablePanel>
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        <Panel title='Orders'>
-          <OrdersDataTable
-            data={props.data}
-          />
-        </Panel>
+        <SwitchablePanel id="p4" panels={panels} defaultPanel="orders-table"></SwitchablePanel>
       </Grid>
     </Grid>
   );
 }
 
 export default Index;
-
-
-
