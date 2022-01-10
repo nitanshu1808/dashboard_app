@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import DataGridPersistence from './DataGridPersistence';
 import Panel from './Panel';
 
 const SwitchablePanel = (props) => {
@@ -17,6 +19,14 @@ const SwitchablePanel = (props) => {
     setPanel(panel);
     localStorage.setItem(storageKey, panel);
     close();
+  }
+
+  const persistence = {};
+  for (var panelKey in props.panels) {
+    const panel = props.panels[panelKey];
+    if (panel.persistence) {
+      persistence[panelKey] = DataGridPersistence(`table-${props.id}-${panelKey}`);
+    }
   }
 
   const title = (
@@ -36,12 +46,27 @@ const SwitchablePanel = (props) => {
           }
         })}
       </Menu>
+      {
+        (persistence[panel] && persistence[panel].dirty) ?
+          <Button
+            variant="contained"
+            onClick={persistence[panel].save}
+            sx={{ 'float': 'right' }}
+          >
+            Make Default View
+          </Button> :
+          <React.Fragment />
+      }
     </React.Fragment>
   );
 
   return (
     <Panel title={title} sx={props.sx}>
-      {props.panels[panel].content}
+      {
+        persistence[panel] ?
+          props.panels[panel].content(persistence[panel]) :
+          props.panels[panel].content
+      }
     </Panel>
   );
 }
